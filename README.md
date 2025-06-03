@@ -1,16 +1,19 @@
-# My Portfolio Website!
+# Nurullah Ila – Portfolio Website 🌐
 
-This is my beginner portfolio website built in HTML & CSS only.
+Welcome to our personal portfolio website – built using only **HTML and CSS**.  
+Here I share who I am, what I love, and what I dream of building.
+
 
 ## Features ✨
 
-- Responsive design 📱
-- HTML/CSS only 🖥️
-- Leave a message (coming soon!) 💬
+- Fully responsive design  
+- Clean and minimal layout  
+- Built using only HTML and CSS  
+- Leave a message feature (coming soon!)
 
 ## How to Run 🚀
 
-1. Clone this repository: `git clone https://github.com/stephanieran/personal-portfolio.git`  
+1. Clone this repository: `git clone https://github.com/aaf-nurullah/personal-portfolio.git`  
 2. Open `index.html` in your browser.
 
 ## Image Guidelines
@@ -32,4 +35,4 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 ## Contact 📧
 
-Created by [Steph Ran](https://stephanieran.github.io/personal-portfolio/) - feel free to reach out!!
+Created by [aaf-nurullah](https://aaf-nurullah.github.io/personal-portfolio/) - feel free to reach out!!
