@@ -28,26 +28,23 @@
     </header>
 
     <section id="about-section">
-        <h2>Hey World, I'm Nurullah!</h2>
-        <div class="headshot">
+        <h1 class="intro-title">hi, <strong>nurullah</strong> <span class="intro-ending">here.<span class="intro-cursor" aria-hidden="true">|</span></span></h1>
+        <div class="headshot hologram">
             <picture>
-                <source srcset="images/webp/headshot.webp" type="image/webp">
-                <img src="images/headshot.png" alt="headshot">
+                <source srcset="images/headshot-portrait-hologram.webp" type="image/webp">
+                <img src="images/headshot-portrait-hologram.webp" alt="Nurullah’s portrait rendered as a mint particle hologram">
             </picture>
+            <canvas class="hologram-canvas" hidden role="button" tabindex="0" aria-label="Interactive hologram of Nurullah. Move your pointer or drag to move the particles. Press Enter or Space to scatter them."></canvas>
         </div>
         <div class="bio">
             <p>
-                "Hello! I'm Nurullah.
-                Software development and cybersecurity are not just an interest for me, but also a passion that I am deeply attached to.
-                I am a curious, open-to-learning student, and discovering new information excites me even more.
-                I grow, develop, and get one step closer to my dreams on this journey."
+                I’m an aspiring cybersecurity enthusiast dedicated to specializing in cloud security architecture.
+                My daily workflow centers around Linux systems and networking, where I build custom tools and scripts to understand infrastructure from the inside out.
+                My current goal is to deepen my knowledge of secure cloud infrastructures through practical, real-world applications.
             </p>
-            <br>
             <p>
-                Apart from my career goals, I enjoy playing chess, which provides mental flexibility. 
-                Watching series, listening to music and spending time with my loved ones provide me with balance and inspiration in my daily life. 
-                Developing small but creative projects in my spare time is both a way of expressing myself and a part of my motivation to learn new things. 
-                These passions contribute to my personal development and make life more meaningful.
+                Outside of tech, I’m deeply fascinated by astronomy and the cosmos, and I enjoy playing chess, listening to music, and watching series.
+                I love spending meaningful time with close friends, balancing my passion for building technical projects with a genuine curiosity for the world around me.
             </p>
         </div>
         <div class="social-links">
@@ -57,8 +54,8 @@
             <a href="https://www.youtube.com/@aaf.nurullah" target="_blank">
                 <i class="fa-brands fa-square-youtube"></i>
             </a>
-            <a href="mailto:nurullahila173@gmail.com">
-                <i class="fa-solid fa-envelope"></i>
+            <a href="https://www.linkedin.com/in/nurullah-ila-61826b377/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
             </a>
             <a href="https://github.com/aaf-nurullah" target="_blank">
                 <i class="fa-brands fa-github"></i>
@@ -76,42 +73,61 @@
     <div class="divider"></div>
      
     <section id="skills-section">
-       <h2>Skills</h2> 
-       <div class="skills-container">
-           <!-- Yazılım & Diller -->
-           <i class="fa-brands fa-python" title="Python / Security Automation"></i>
-           <i class="devicon-c-plain-wordmark" title="C / Systems & Low-Level Programming"></i>
-           <i class="devicon-go-original-wordmark" title="Go / Modern Security Tools"></i>
-           <i class="fa-brands fa-java" title="Java"></i>
-           <i class="fa-solid fa-database" title="SQL / Databases"></i>
-
-           <!-- Linux & Terminal -->
-           <i class="fa-brands fa-linux" title="Linux Systems"></i>
-           <i class="devicon-archlinux-plain" title="Arch Linux"></i>
-           <i class="devicon-bash-plain" title="Bash & Shell Scripting"></i>
-
-           <!-- Siber Güvenlik & Ağ -->
-           <i class="fa-solid fa-shield-halved" title="Cyber Security & Pentesting"></i>
-           <i class="fa-solid fa-network-wired" title="Network Security"></i>
-
-           <!-- Bulut & DevSecOps -->
-           <i class="fa-brands fa-aws" title="AWS Cloud Security"></i>
-           <i class="fa-brands fa-docker" title="Docker Containerization"></i>
-           <i class="devicon-kubernetes-plain" title="Kubernetes"></i>
-           <i class="fa-brands fa-cloudflare" title="Cloudflare"></i>
-
-           <!-- Versiyon Kontrol -->
-           <i class="fa-brands fa-git-alt" title="Git"></i>
-           <i class="fa-brands fa-github-alt" title="GitHub"></i>
-       </div>
+        <h2>Skills &amp; Technologies</h2>
+        <div class="skill-group" role="group" aria-labelledby="core-skills-title">
+            <h3 id="core-skills-title">Core Skills &amp; Daily Tools</h3>
+            <p class="skill-group-note">Tools I use while building my foundations in systems, programming, and security.</p>
+            <ul class="skills-container">
+                <li><i class="fa-brands fa-linux" aria-hidden="true"></i><span class="skill-name">Linux</span><span class="skill-detail">Terminal &amp; system basics</span></li>
+                <li><i class="devicon-archlinux-plain" aria-hidden="true"></i><span class="skill-name">Arch Linux</span><span class="skill-detail">Configuration &amp; dotfiles</span></li>
+                <li><i class="devicon-bash-plain" aria-hidden="true"></i><span class="skill-name">Bash / Shell</span><span class="skill-detail">Scripts &amp; automation</span></li>
+                <li><i class="fa-solid fa-network-wired" aria-hidden="true"></i><span class="skill-name">Networking</span><span class="skill-detail">TCP/IP &amp; routing basics</span></li>
+                <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span class="skill-name">Cybersecurity</span><span class="skill-detail">Defensive security basics</span></li>
+                <li><i class="fa-brands fa-python" aria-hidden="true"></i><span class="skill-name">Python</span><span class="skill-detail">Scripting &amp; small tools</span></li>
+                <li><i class="devicon-c-plain-wordmark" aria-hidden="true"></i><span class="skill-name">C</span><span class="skill-detail">Programming &amp; memory basics</span></li>
+                <li><i class="fa-solid fa-database" aria-hidden="true"></i><span class="skill-name">SQL</span><span class="skill-detail">Queries &amp; database basics</span></li>
+                <li><i class="fa-brands fa-git-alt" aria-hidden="true"></i><span class="skill-name">Git</span><span class="skill-detail">Version control</span></li>
+                <li><i class="fa-brands fa-github-alt" aria-hidden="true"></i><span class="skill-name">GitHub</span><span class="skill-detail">Repositories &amp; project history</span></li>
+            </ul>
+        </div>
+        <div class="skill-group skill-group-roadmap" role="group" aria-labelledby="roadmap-title">
+            <h3 id="roadmap-title">Cloud &amp; Security Roadmap</h3>
+            <p class="skill-group-note">Technologies I'm learning or plan to explore as I move toward cloud and security work.</p>
+            <ul class="skills-container">
+                <li><i class="fa-brands fa-aws" aria-hidden="true"></i><span class="skill-name">AWS</span><span class="skill-detail">Cloud infrastructure &amp; security</span></li>
+                <li><i class="fa-brands fa-docker" aria-hidden="true"></i><span class="skill-name">Docker</span><span class="skill-detail">Containers &amp; isolated environments</span></li>
+                <li><i class="devicon-kubernetes-plain" aria-hidden="true"></i><span class="skill-name">Kubernetes</span><span class="skill-detail">Container orchestration</span></li>
+                <li><i class="fa-brands fa-cloudflare" aria-hidden="true"></i><span class="skill-name">Cloudflare</span><span class="skill-detail">Edge services &amp; security</span></li>
+                <li><i class="devicon-go-original-wordmark" aria-hidden="true"></i><span class="skill-name">Go</span><span class="skill-detail">Systems &amp; security tooling</span></li>
+                <li><i class="fa-brands fa-java" aria-hidden="true"></i><span class="skill-name">Java</span><span class="skill-detail">Object-oriented programming</span></li>
+            </ul>
+        </div>
     </section>
 
     <div class="divider"></div>
 
     <section id="leave-message-section">
         <h2>Leave a Message!</h2>
-        <p>coming soon :)</p>
+        <form id="message-form" class="message-form">
+            <label for="message-name">Name</label>
+            <input id="message-name" name="name" type="text" autocomplete="name" required maxlength="100">
+
+            <label for="message-email">Email</label>
+            <input id="message-email" name="email" type="email" autocomplete="email" required maxlength="254">
+
+            <label for="message-text">Message</label>
+            <textarea id="message-text" name="message" rows="5" required minlength="10" maxlength="4000"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="message-status" class="message-status" role="status" aria-live="polite" aria-atomic="true"></p>
     </section>
+
+    <div id="message-toast" class="message-toast" role="group" aria-label="Message notification" hidden>
+        <span id="message-toast-icon" class="message-toast-icon" aria-hidden="true">✓</span>
+        <p id="message-toast-text" class="message-toast-text"></p>
+        <button id="message-toast-close" class="message-toast-close" type="button" aria-label="Dismiss notification">×</button>
+    </div>
 
     <footer>
         <p>&copy; <span id="year"></span> Nurullah Ila. All Rights Reserved.</p>
@@ -123,5 +139,7 @@
             document.getElementById('year').textContent = new Date().getFullYear();
         });
     </script>
+    <script src="message.js"></script>
+    <script type="module" src="hologram.mjs"></script>
 </body>
 </html>

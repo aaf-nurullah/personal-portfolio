@@ -1,8 +1,15 @@
 /* Base Styles */
 :root {
-    --text-color: #1a1c20;
-    --link-color: #ffffff;
-    --background-color: #eeeff1;
+    --text-color: #d7e2f1;
+    --muted-color: #aebed5;
+    --link-color: #8ce5d0;
+    --background-color: #0a192f;
+    --surface-color: #11243c;
+    --border-color: #597491;
+    --accent-color: #bfd6c4;
+    --hologram-rgb: 140, 229, 208;
+    --hologram-color: rgb(var(--hologram-rgb));
+    color-scheme: dark;
     font-size: 17px; /* Set the base font size */
 }
 
@@ -31,6 +38,8 @@ html {
 
 body {
     font-family: 'Steph', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 a {
@@ -39,7 +48,7 @@ a {
 }
 
 nav {
-    background-color: #bfd6c4;
+    background-color: var(--background-color);
     display: flex;
     justify-content: space-between;
     padding: 0 3.125rem;
@@ -49,12 +58,13 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(191, 214, 196, 0.9);
+    background-color: rgba(10, 25, 47, 0.93);
+    border-bottom: 1px solid rgba(191, 214, 196, 0.12);
     backdrop-filter: blur(5px);
 }
 
 nav .left a {
-    color: var(--text-color);
+    color: var(--accent-color);
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -81,15 +91,15 @@ section {
     text-align: center;
     gap: 2rem;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 0 rgba(191, 214, 196, 0.08);
 }
 
 section:nth-of-type(odd) {
-    background-color: #f8f8f8; /* Light gray for odd sections */
+    background-color: var(--background-color);
 }
 
 section:nth-of-type(even) {
-    background-color: #ffffff; /* White for even sections */
+    background-color: var(--background-color);
 }
 
 /* Section Heading Styles */
@@ -107,7 +117,7 @@ section h2::after {
     position: absolute;
     width: 100px;
     height: 4px;
-    background-color: #bfd6c4;
+    background-color: var(--accent-color);
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
@@ -126,10 +136,39 @@ section h2::after {
     gap: 0.5rem;
 }
 
-#about-section h2 {
+#about-section .intro-title {
     margin-bottom: 1rem;
-    font-size: 2.75rem;
+    font-size: clamp(1.9rem, 6vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.25;
+    letter-spacing: 1px;
+}
+
+#about-section .intro-title strong {
+    color: var(--hologram-color);
     font-weight: 700;
+}
+
+.intro-ending {
+    white-space: nowrap;
+}
+
+.intro-cursor {
+    display: inline-block;
+    margin-left: 0.12em;
+    color: var(--hologram-color);
+    animation: cursor-blink 1.1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-cursor {
+        animation: none;
+    }
 }
 
 #about-section .headshot {
@@ -156,13 +195,19 @@ section h2::after {
 
 #about-section .bio {
     margin-bottom: 2rem;
-    padding: 0 2rem;
-    max-width: 56.25rem;
+    width: 100%;
+    max-width: 42rem;
 }
 
 #about-section .bio p {
     font-size: 1.25rem;
     font-weight: 300;
+    color: var(--muted-color);
+    line-height: 1.65;
+}
+
+#about-section .bio p + p {
+    margin-top: 1.25rem;
 }
 
 #about-section .social-links {
@@ -179,12 +224,12 @@ section h2::after {
 }
 
 #about-section .social-links a:hover i {
-    color: #a5d6b0;
+    color: var(--hologram-color);
     transform: scale(1.2);
 }
 
 #about-section .social-links i {
-    color: #588061;
+    color: var(--accent-color);
     font-weight: 500;
 }
 
@@ -322,32 +367,84 @@ section h2::after {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2rem; /* Add gap between elements */
+    gap: 2.75rem;
 }
 
 #skills-section h2 {
     margin-bottom: 1rem;
-    font-size: 2.75rem;
+    font-size: clamp(2rem, 6vw, 2.75rem);
     font-weight: 700;
 }
 
+#skills-section .skill-group {
+    width: 100%;
+    max-width: 60rem;
+}
+
+#skills-section .skill-group-roadmap {
+    max-width: 36rem;
+    padding-top: 0.75rem;
+}
+
+#skills-section h3 {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+#skills-section .skill-group-note {
+    max-width: 36rem;
+    margin: 0.6rem auto 1.5rem;
+    color: var(--muted-color);
+    line-height: 1.6;
+}
+
 #skills-section .skills-container {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+#skills-section .skill-group-roadmap .skills-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#skills-section .skills-container li {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem; /* Add gap between icons */
+    flex-direction: column;
+    align-items: center;
+    padding: 0.9rem 0.4rem 1rem;
+    border-bottom: 1px solid rgba(191, 214, 196, 0.14);
+    min-width: 0;
+}
+
+#skills-section .skill-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+#skills-section .skill-detail {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--muted-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 #skills-section i {
     font-size: 3rem;
-    color: #588061;
+    color: var(--hologram-color);
     transition: transform 0.3s ease, color 0.3s ease;
-    margin: 1rem 0; /* Add margin to ensure proper spacing */
+    margin: 0 0 0.85rem;
+    line-height: 1.2;
 }
 
 #skills-section i:hover {
     transform: scale(1.2);
-    color: #a5d6b0;
+    color: var(--text-color);
 }
 
 /* Leave a Message Section */
@@ -369,14 +466,14 @@ section h2::after {
 
 #leave-message-section p {
     font-size: 1.25rem;
-    color: #555;
+    color: var(--muted-color);
     max-width: 600px;
     line-height: 1.6;
 }
 
 footer {
-    background-color: #909090;
-    color: #fff;
+    background-color: #081425;
+    color: var(--muted-color);
     text-align: center;
     padding: 1rem 0;
     font-size: 0.875rem;
@@ -456,7 +553,8 @@ footer {
     }
 
     #skills-section .skills-container {
-        gap: 1.25rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
      }
 }
 
@@ -478,10 +576,6 @@ footer {
         font-size: 1.75rem;
     }
 
-    #about-section h2 {
-        font-size: 2.4rem;
-    }
-
     #about-section .headshot {
         width: 12rem;
         height: 12rem;
@@ -492,10 +586,12 @@ footer {
     }
 
     #skills-section i {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
-    #skills-section .skills-container {
+    #skills-section .skills-container,
+    #skills-section .skill-group-roadmap .skills-container {
+       grid-template-columns: repeat(2, minmax(0, 1fr));
        gap: 1rem;
     }
 
@@ -510,4 +606,250 @@ footer {
     #leave-message-section {
         padding: 3rem 1rem; /* Adjust padding for smaller screens */
     }
+}
+
+/* Leave a message: preserve the font and use the page's theme colors. */
+#leave-message-section .message-form {
+    width: 100%;
+    max-width: 36rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+}
+
+#leave-message-section .message-form label {
+    font: inherit;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+}
+
+#leave-message-section .message-form input,
+#leave-message-section .message-form textarea,
+#leave-message-section .message-form button {
+    font: inherit;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    min-width: 0;
+}
+
+#leave-message-section .message-form input,
+#leave-message-section .message-form textarea {
+    width: 100%;
+    background-color: var(--surface-color);
+    caret-color: var(--accent-color);
+}
+
+#leave-message-section .message-form textarea {
+    resize: vertical;
+}
+
+#leave-message-section .message-form button {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--background-color);
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+#leave-message-section .message-form button:hover {
+    background-color: var(--hologram-color);
+}
+
+#leave-message-section .message-form button:disabled {
+    cursor: wait;
+    opacity: 0.75;
+}
+
+#leave-message-section .message-form[aria-busy="true"] button::before {
+    content: '';
+    display: inline-block;
+    width: 0.75em;
+    height: 0.75em;
+    margin-right: 0.6em;
+    vertical-align: -0.05em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: message-spin 0.8s linear infinite;
+}
+
+#leave-message-section .message-form :focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+#message-status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.message-toast {
+    --toast-accent: var(--accent-color);
+    position: fixed;
+    z-index: 2000;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    width: min(26rem, calc(100vw - 2rem));
+    padding: 1rem;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid var(--toast-accent);
+    border-radius: 0.9rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    animation: message-toast-enter 0.22s ease-out;
+}
+
+.message-toast[hidden] {
+    display: none;
+}
+
+.message-toast[data-state="error"] {
+    --toast-accent: #ffbbb4;
+}
+
+.message-toast-icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 1.9rem;
+    height: 1.9rem;
+    border: 1px solid var(--toast-accent);
+    border-radius: 50%;
+    color: var(--toast-accent);
+    font: 600 1rem system-ui, sans-serif;
+}
+
+.message-toast-text {
+    flex: 1;
+    min-width: 0;
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.message-toast-close {
+    flex: 0 0 1.9rem;
+    min-height: 1.9rem;
+    color: var(--text-color);
+    background: transparent;
+    border: 0;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font: 1.35rem system-ui, sans-serif;
+}
+
+.message-toast-close:hover {
+    color: var(--toast-accent);
+}
+
+.message-toast-close:focus-visible {
+    outline: 2px solid var(--toast-accent);
+    outline-offset: 2px;
+}
+
+@keyframes message-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes message-toast-enter {
+    from { opacity: 0; transform: translateY(0.5rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .message-toast,
+    #leave-message-section .message-form[aria-busy="true"] button::before {
+        animation: none;
+    }
+}
+
+/* Keep the open profile footprint with a restrained mint glow on navy. */
+#about-section .headshot.hologram {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#about-section .headshot.hologram::before {
+    content: '';
+    position: absolute;
+    inset: -4% -10%;
+    z-index: -1;
+    background: radial-gradient(ellipse at center,
+        rgba(var(--hologram-rgb), 0.12) 0%,
+        rgba(var(--hologram-rgb), 0.045) 38%,
+        rgba(var(--hologram-rgb), 0) 68%);
+    filter: blur(16px);
+    pointer-events: none;
+}
+
+#about-section .headshot.hologram picture {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Keep the portrait's transparent point pattern in the static fallback. */
+#about-section .headshot.hologram picture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--hologram-color);
+    mask-image: url('images/headshot-portrait-hologram.webp');
+    mask-mode: luminance;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    pointer-events: none;
+}
+
+#about-section .headshot.hologram img {
+    opacity: 0;
+    border-radius: 0;
+}
+
+#about-section .headshot.hologram img:hover {
+    transform: none;
+}
+
+#about-section .headshot.hologram.hologram-ready picture {
+    visibility: hidden;
+}
+
+#about-section .hologram-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: crosshair;
+    touch-action: none;
+    border-radius: 0;
+}
+
+#about-section .hologram-canvas[hidden] {
+    display: none;
+}
+
+#about-section .hologram-canvas:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: -6px;
 }
